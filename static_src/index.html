@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Comments_vue</title>
+</head>
+<body>
+	<div id="editor">
+	  <textarea :value="input" @input="update"></textarea>
+	  <div v-html="compiledMarkdown"></div>
+	  <a href="#" class="button js-msw-addComments">Отправить</a>
+	</div>
+</body>
+</html>
