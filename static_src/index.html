@@ -5,9 +5,38 @@
 </head>
 <body>
 	<div id="editor">
-	  <textarea :value="input" @input="update"></textarea>
-	  <div v-html="compiledMarkdown"></div>
-	  <a href="#" class="button js-msw-addComments">Отправить</a>
+		<div v-if="seen">
+			<textarea :value="input" @input="update" placeholder="enter comment?"></textarea>
+			<a href="#" class="button js-msw-addComments" v-on:click="addComment">Отправить</a>
+			<div> 
+			<!--  v-html="compiledMarkdown" -->
+				<div class="msw-comment js-msw-comment" v-for="comment in comments">
+				  	<div class="msw-comment-header">
+				      	<a href="" target="_blank">
+				      		<img :src="comment.url" width="40" height="40" alt="" class="msw-comment-img"></a>
+				      	<a :href="comment.href" target="_blank" class="msw-comment-name">{{ comment.name }}</a>
+				    	<a href="" target="_blank" class="msw-comment-date">
+				    		<time datetime="" title="">{{ comment.time }}</time>
+				    	</a>
+				  	</div>
+				 	<div class="msw-comment-footer">
+					    <div>
+					      	<a href="#" class="msw-comment-reply js-msw-comment-reply">Ответить</a>
+					      	<a href="#" class="msw-comment-edit js-msw-comment-edit">Редактировать</a>
+					    </div> 
+				  	</div>
+				  	<div class="msw-comment-footer-reply">
+				  		{{ comment.text }}
+				    	<textarea class="msw-summernote-reply js-summernote-reply" name="content"></textarea>
+				    	<div class="msw-comment-footer-reply-btn">
+				      		<a href="#" class="msw-button-kit msw-cancel-reply js-msw-cancel-reply">Отменить</a>
+				      		<a href="#" class="msw-button-kit msw-enter-reply js-msw-enter-reply">Добавить</a>
+				    	</div>
+				  	</div>
+				</div>
+			</div>
+		</div>
 	</div>
+
 </body>
 </html>
