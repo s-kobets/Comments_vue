@@ -18,8 +18,9 @@ body
   overflow hidden
 
 .button
+  display inline-block
   margin: 15px 0 0;
-  padding: 8px 0;
+  padding: 8px;
   border-radius: 0;
   border: 1px solid #bcbcbc;
   text-align: center;
@@ -102,13 +103,9 @@ body
         margin-top: 15px;
     
       &-btn
-        display: none;
+        display: flex;
         align-items: center;
         justify-content: space-between;
-
-        .msw-button-kit
-          margin-top: 0;
-          width: 90px;
 
   &-reply
     font-size: 12px;

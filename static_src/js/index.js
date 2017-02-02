@@ -15,14 +15,22 @@ const moment = require('moment');
 moment.locale('ru');
 
 let app = new Vue({
-  el: '#editor',
+  el: '.editor',
   data: {
     input: '',
-    seen: true,
+    see: false,
     comments: [
     	{ name: 'user 1', href: '1', url: '', time: '12.12.2012 12:00', text: marked('# one comment') },
     	{ name: 'user 2', href: '2', url: '', time: '13.13.2013 13:00', text: marked('# two comment') }, 
-    ]
+    ],
+    editTask: null
+  },
+  filters: {
+    editComment: function () {
+      return this.comments.filter(function (item) {
+        return item.text;
+      })
+    }
   },
   computed: {
   	now: function () {
@@ -52,6 +60,17 @@ let app = new Vue({
     	});
     	this.input = '';
   
+    },
+    toggle: function () {
+      if (this.see === true) {
+        this.see = false;
+      } else {
+        this.see = true;
+      }
+    },
+    edit: function () {
+      this.toggle();
+
     }
   },
   watch: {
