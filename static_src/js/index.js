@@ -81,5 +81,3 @@ let app = new Vue({
   	console.log(newText);
   }
 });
-
-console.log(app.seen);

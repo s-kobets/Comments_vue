@@ -18,18 +18,18 @@
 			    		<time datetime="" title="">{{ comment.time }}</time>
 			    	</a>
 			  	</div>
+			  	{{ comment.text }}
 			 	<div class="msw-comment-footer">
 				    <div>
-				      	<a href="#" class="msw-comment-reply js-msw-comment-reply" v-on:click="toggle">Ответить {{see}}</a>
+				      	<a href="#" class="msw-comment-reply js-msw-comment-reply" v-on:click="$data.see = true">Ответить {{see}}</a>
 				      	<a href="#" class="msw-comment-edit js-msw-comment-edit">Редактировать</a>
 				    </div> 
 			  	</div>
 			  	<!-- see -->
 			  	<div class="msw-comment-footer-reply" v-if="see">
-			  		{{ comment.text }}
 			    	<textarea class="msw-summernote-reply js-summernote-reply" name="content"></textarea>
 			    	<div class="msw-comment-footer-reply-btn">
-			      		<a href="#" class="msw-button-kit msw-cancel-reply button js-msw-cancel-reply">Отменить</a>
+			      		<a href="#" class="msw-button-kit msw-cancel-reply button js-msw-cancel-reply" v-on:click="$data.see = false">Отменить</a>
 			      		<a href="#" class="msw-button-kit msw-enter-reply button js-msw-enter-reply">Добавить</a>
 			    	</div>
 			  	</div>
